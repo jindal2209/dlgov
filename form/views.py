@@ -38,7 +38,8 @@ def send_message(phone_number,msg):
 @api_view(['POST'])
 def complaintView(request):
 	if request.method == "POST" :
-		rdata = request.data
+		rdata = request.data.copy()
+		# rdata._mutalble = True 
 		tdate = date.today()
 		tdate = tdate.strftime("%d%m%y")
 		
@@ -61,3 +62,5 @@ def complaintView(request):
 			send_message(request.data['phone_number'],msg)
 			# print(request.data['phone_number']) make an api call to phone number
 			return Response(responseData,status=status.HTTP_201_CREATED)
+		else :
+			return Response(serialized._errors,status=status.HTTP_400_BAD_REQUEST)

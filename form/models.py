@@ -10,7 +10,7 @@ class Complaint(models.Model):
 	district = models.CharField(max_length=50)
 	ward = models.CharField(max_length=100)
 	department = models.CharField(max_length=200)
-	file_uploaded = models.FileField(upload_to="Files")
+	file_uploaded = models.FileField(upload_to="Files",blank=True,null=True)
 	complaint_text = models.TextField(max_length=1000,blank=True)
 	status = models.BooleanField(default=False,blank=True)
 	complaint_number = models.CharField(blank=True,max_length=100)
