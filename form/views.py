@@ -57,7 +57,7 @@ def complaintView(request):
 				"complaint_number" : rdata['complaint_number'] 
 			}
 			cnum = rdata['complaint_number']
-			fname = rdata['first_name'] + rdata['last_name']
+			fname = rdata['first_name'] + ' ' +rdata['last_name']
 			msg = "Hi " + fname + ". Your complaint has been registered. Your complaint number is " + cnum + " save this complaint number for future references"
 			send_message(request.data['phone_number'],msg)
 			# print(request.data['phone_number']) make an api call to phone number
