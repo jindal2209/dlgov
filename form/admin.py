@@ -5,5 +5,5 @@ from .models import Complaint
 @admin.register(Complaint)
 class ComplaintView(admin.ModelAdmin):
 	list_display = ('complaint_number',"phone_number","status",'district','ward')
-	list_filter = ("status",'district','ward')
+	list_filter = ("status",'district','ward','department')
 	search_fields = ('complaint_number','phone_number')

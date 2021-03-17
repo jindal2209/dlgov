@@ -22,7 +22,7 @@ def send_message(phone_number,msg):
 	url = "https://www.fast2sms.com/dev/bulkV2"
 	querystring = {
 
-		"authorization":"4AnjbmwRhPDUsMXodxclz5Y1fiOHvEKpuk7VZS8eTQIJFLtG2NNWbh2yAa5nklY97j4rCJfoecVIXKdT",
+		"authorization":"[YOUR_MESSAGE_AUTHORISATIION_KEY]",
 		"sender_id":"CHKSMS",
 		"message_text":msg,
 		# "variables_values":"12345|asdaswdx",
@@ -57,7 +57,7 @@ def complaintView(request):
 				"complaint_number" : rdata['complaint_number'] 
 			}
 			cnum = rdata['complaint_number']
-			fname = rdata['first_name'] + ' ' +rdata['last_name']
+			fname = rdata['first_name'] + rdata['last_name']
 			msg = "Hi " + fname + ". Your complaint has been registered. Your complaint number is " + cnum + " save this complaint number for future references"
 			send_message(request.data['phone_number'],msg)
 			# print(request.data['phone_number']) make an api call to phone number
